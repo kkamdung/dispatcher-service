@@ -29,6 +29,7 @@ ext {
 
 dependencies {
     implementation 'org.springframework.cloud:spring-cloud-stream-binder-rabbit'
+    implementation 'org.springframework.cloud:spring-cloud-config-client'
 
     compileOnly 'org.projectlombok:lombok'
 
