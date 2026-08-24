@@ -33,11 +33,14 @@ spring:
     password: password
     connection-timeout: 5s
 
+info:
+  system: Polar Bookshop
+
 management:
   endpoints:
     web:
       exposure:
-        include: health, prometheus
+        include: health, prometheus, info
   endpoint:
     health:
       show-details: always
@@ -47,6 +50,9 @@ management:
   metrics:
     tags:
       application: ${spring.application.name}
+  info:
+    env:
+      enabled: true
 
 logging:
   pattern:
