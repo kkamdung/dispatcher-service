@@ -31,8 +31,6 @@ spec:
           env:
             - name: SPRING_CLOUD_CONFIG_URI
               value: http://config-service
-            - name: SPRING_RABBITMQ_HOST
-              value: polar-rabbitmq
           livenessProbe:
             httpGet:
               path: /actuator/health/liveness
@@ -45,3 +43,10 @@ spec:
               port: 9003
             initialDelaySeconds: 5
             periodSeconds: 15
+          volumeMounts:
+            - name: dispatcher-config-volume
+              mountPath: /workspace/config
+      volumes:
+        - name: dispatcher-config-volume
+          configMap:
+            name: dispatcher-config
